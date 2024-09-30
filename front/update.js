@@ -1,7 +1,8 @@
-function update(){
-    fetch("/api/update").then(response => response.json()).then(val=>{
-        const cont = document.getElementById("container")
-        for (let key in val){
+async function update(){
+    let response = await fetch("/api/catalog/5ka")
+    let val = await response.json();
+    const cont = document.getElementById("container")
+    for (let key in val){
 
             let newDiv = document.createElement('div')
             newDiv.classList.add("energyDrink")
@@ -21,7 +22,6 @@ function update(){
 
             cont.appendChild(newDiv);
         }
-    })
 }
 
 document.getElementById('updButton').onclick = update;
