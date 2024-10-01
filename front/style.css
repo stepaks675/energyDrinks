@@ -13,9 +13,26 @@
     margin:auto;
     border: 1px black solid;
 }
+.energyDrinkPrice{
+    position:absolute;
+    bottom:25px;
+    left:15px;
+    font-size:2rem;
+    margin:0px;
+    color: red;
+}
 .energyDrinkName{
     overflow-wrap: break-word;
+    font-size:1.3rem;
+    margin-bottom:60px;
 }
 .energyDrinkImage{
+    object-fit: none;
     float: right;
+    width: 150px;
+    height: 320px;
+}
+.energyDrink{
+    position:relative;
+    border: 1px grey solid;
 }

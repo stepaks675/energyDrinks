@@ -8,8 +8,6 @@ adresses5
 export class Service5 {
     constructor() {
       this.codes = Array.from(adresses5.keys());
-      this.nameToImg = new Map(); //без повторений
-      this.nameToAll = new Map(); //с повторениями для подробного осмотра
     }
   
     async actualizeData() {

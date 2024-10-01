@@ -29,8 +29,18 @@ class dbController {
   }
   Save(drink){
     let newDrink = new this.Drink(drink)
-    newDrink.save().then(()=>{console.log(`успешно сохранен ${drink.name}`)}).catch(()=>{console.log("дубликат или другая ошибка(")})
+    newDrink.save().then(()=>{console.log(`успешно сохранен ${drink.name}`)}).catch((err)=>{console.log(`ошибка при попытке сохранить энергосик : ${err}`)})
   }
+  async GetCatalog(shopN){
+    try{
+      let c = await this.Drink.find({shop: shopN})
+      if (!c.length) throw "Для запрашиваемого магазина база данных пуста"
+      return c
+    }
+    catch(err){
+      console.log(`ошибка при получении каталога : ${err}`)
+    }
+  }  
   
 }
 
