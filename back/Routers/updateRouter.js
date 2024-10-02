@@ -6,7 +6,7 @@ const service5 = new Service5();
 const updateRouter = new Router();
 
 updateRouter.get('/5ka', async (req,res)=>{
-    await service5.actualizeData().then(val=>{val.forEach(element => {
+    await service5.actualizeData().then(val=>{val.forEach(async function(element){
         database.Save(element);
     })})
     res.send("База данных успешно (или не очень) обновилась");

@@ -1,9 +1,9 @@
 let adresses5 = new Map();
 adresses5
-.set("370V","Нижний Новгород, Должанская, 6Б")
-.set("J088","Нижний Новгород, Мещерский б-р,  5")
-.set("L522","Нижний Новгород, Сергея Акимова, 43")
-.set("33DY","Нижний Новгород, Должанская, 1А")
+.set("370V","56.329327, 43.956354")
+.set("J088","56.336453, 43.938730")
+.set("L522","56.346337, 43.925183")
+.set("33DY","56.331493, 43.961044")
 
 export class Service5 {
     constructor() {
@@ -26,6 +26,7 @@ export class Service5 {
               prices: { regular: price },
               image_links: { small: img },
             } = val;
+            if (val.prices.discount) price = val.prices.discount;
             img = img[0];
             let shopAdress = adresses5.get(code);
             goods.push({ name, price, img, shop, shopAdress });
@@ -49,15 +50,3 @@ export class Service5 {
       }
     }
   }
-
- /* goods.forEach((obj) => {
-    if (!here.nameToImg.has(obj.name)) {
-      here.nameToImg.set(obj.name, obj.img);
-    }
-    if (here.nameToAll.has(obj.name)) {
-      here.nameToAll.get(obj.name).push(obj);
-    } else {
-      here.nameToAll.set(obj.name, new Array());
-      here.nameToAll.get(obj.name).push(obj);
-    }
-  }); */

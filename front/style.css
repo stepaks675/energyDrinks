@@ -16,17 +16,19 @@
 .energyDrinkPrice{
     position:absolute;
     bottom:25px;
-    left:15px;
+    left:25px;
     font-size:2rem;
     margin:0px;
     color: red;
 }
 .energyDrinkName{
     overflow-wrap: break-word;
-    font-size:1.3rem;
+    font-size:1.25rem;
     margin-bottom:60px;
+    margin-left:10px;
 }
 .energyDrinkImage{
+    margin:10px 0px 10px 0px;
     object-fit: none;
     float: right;
     width: 150px;
@@ -35,4 +37,28 @@
 .energyDrink{
     position:relative;
     border: 1px grey solid;
+    border-radius: 5px;
+}
+.card{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    z-index: 1000;
+}
+#map{
+    width: 600px;
+    height: 600px;
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3); /* Полупрозрачный черный фон */
+    z-index: 999;
 }

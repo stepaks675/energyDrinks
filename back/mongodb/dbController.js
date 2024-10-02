@@ -2,6 +2,7 @@ import dotenv from "dotenv"
 import mongoose from "mongoose";
 
 dotenv.config()
+
 class dbController {
 
   constructor() {
@@ -27,11 +28,13 @@ class dbController {
         console.error("БАЗА ДАННЫХ НЕ РАБОТАЕТ =( :", error);
       });
   }
+
   Save(drink){
     let newDrink = new this.Drink(drink)
     newDrink.save().then(()=>{console.log(`успешно сохранен ${drink.name}`)}).catch((err)=>{console.log(`ошибка при попытке сохранить энергосик : ${err}`)})
   }
-  async GetCatalog(shopN){
+
+  async GetCatalog(shopN){ //получаем энергосы по магазину
     try{
       let c = await this.Drink.find({shop: shopN})
       if (!c.length) throw "Для запрашиваемого магазина база данных пуста"
@@ -39,6 +42,17 @@ class dbController {
     }
     catch(err){
       console.log(`ошибка при получении каталога : ${err}`)
+    }
+  }
+
+  async GetAllById(id){ //получаем все одинаковые энергосы
+    try{
+      let prod = await this.Drink.findById(id);
+      if (!prod) throw "Запрашиваемый товар отсутствует (?)"
+      let prods = await this.Drink.find({name : prod.name, shop : prod.shop});
+      return prods
+    } catch(err){
+      console.log(`ошибка при получении товара по id : ${err}`)
     }
   }  
   

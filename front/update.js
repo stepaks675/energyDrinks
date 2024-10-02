@@ -28,9 +28,12 @@ function update(){
             newDiv.appendChild(price)
 
             cont.appendChild(newDiv);
+
+            newDiv.addEventListener('click', ()=>{
+                card(newDiv.id);
+            })
         })  
         }
     )
 }
-
 document.getElementById('updButton').onclick = update;
