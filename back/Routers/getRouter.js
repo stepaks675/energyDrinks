@@ -14,9 +14,26 @@ getRouter.get('/product/:id?', (req,res)=>{
         res.status(200).json(prods);
     })
 })
+
 getRouter.get('/5ka',(req,res)=>{
         database.GetCatalog("Pyaterochka").then(val => {
             console.log("Получен массив энергосов из пятерочки")
+            let filtered = gService.filterUnique(val)
+            res.status(200).json(filtered);
+        })
+     })
+
+getRouter.get('/magnet',(req,res)=>{
+        database.GetCatalog("Magnit").then(val => {
+            console.log("Получен массив энергосов из магнита")
+            let filtered = gService.filterUnique(val)
+            res.status(200).json(filtered);
+        })
+     })
+
+getRouter.get('/perek',(req,res)=>{
+        database.GetCatalog("Perekrestok").then(val => {
+            console.log("Получен массив энергосов из перекрестка")
             let filtered = gService.filterUnique(val)
             res.status(200).json(filtered);
         })

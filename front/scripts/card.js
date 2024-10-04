@@ -37,7 +37,6 @@ function card(id){
                 balloonContent: `${element.price} Р`
             })
             newMap.geoObjects.add(pmark);
-            pmark.balloon.open();
         });
     })
 

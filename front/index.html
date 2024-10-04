@@ -7,13 +7,25 @@
     <link rel="stylesheet" href="style.css"> 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=304759d3-672b-408c-b396-a01b36fb46c9&lang=ru_RU"></script>
-    <script src="card.js"></script>
-    <script src="update.js" type="module"></script>
+    <script src="scripts/card.js"></script>
+    <script src="scripts/load.js" type="module"></script>
+    <script src="scripts/updateDB.js" type="module"></script>
 
 </head>
 <body>
     <div id="main-content">
-        <button id="updButton">Update</button>
+        <div class = "header">
+            <button id="5ka" class ="shopbtn">
+                <img src="images/5ka.png"> 
+            </button>
+            <button id="magnet" class ="shopbtn">
+                <img src="images/magnet.jpg">
+            </button>
+            <button id="updButton">
+                <img id="reloadicon" src="images/refresh.png">
+            </button>
+        </div>
+
         <div id="container">
 
         </div>

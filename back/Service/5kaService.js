@@ -1,13 +1,20 @@
-let adresses5 = new Map();
-adresses5
+
+
+let addresses5 = new Map();
+addresses5
 .set("370V","56.329327, 43.956354")
 .set("J088","56.336453, 43.938730")
 .set("L522","56.346337, 43.925183")
 .set("33DY","56.331493, 43.961044")
+.set("3246", "56.336588, 43.930824")
+.set("X056","56.324331, 43.939655")
+.set("Q506", "56.329113, 43.923773")
+.set("J085","56.311811, 43.940553")
 
 export class Service5 {
+
     constructor() {
-      this.codes = Array.from(adresses5.keys());
+      this.codes = Array.from(addresses5.keys());
     }
   
     async actualizeData() {
@@ -28,7 +35,7 @@ export class Service5 {
             } = val;
             if (val.prices.discount) price = val.prices.discount;
             img = img[0];
-            let shopAdress = adresses5.get(code);
+            let shopAdress = addresses5.get(code);
             goods.push({ name, price, img, shop, shopAdress });
           });
 
@@ -36,7 +43,7 @@ export class Service5 {
             //чтоб не банил сервер
             setTimeout(() => {
               resolve(code);
-            }, 2000);
+            }, 5000);
           });
           console.log(`success 5ka code ${s}`);
         }
@@ -47,6 +54,8 @@ export class Service5 {
       } 
       catch (err) {
         console.log(err);
+        throw err;
+        
       }
     }
   }

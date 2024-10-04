@@ -56,6 +56,14 @@ class dbController {
     }
   }  
   
+  async ClearDB(shop){
+    try {
+      await this.Drink.deleteMany({shop: shop})
+      console.log("база данных очищена");
+      return true;
+  }
+    catch(err){console.log(`ошибка при очистке базы данных ${err}`)}
+  }
 }
 
 export const database = new dbController();

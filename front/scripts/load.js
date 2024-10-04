@@ -1,7 +1,14 @@
-function update(){
+function setActive(){
+    Array.from(document.getElementsByClassName("shopbtn")).forEach(el =>{
+        el.classList.remove("active")
+    })
+    this.classList.add("active");
+
+}
+function load(shop){
     const cont = document.getElementById("container")
     cont.innerHTML ='';
-    axios.get("/api/catalog/5ka").then(val =>{
+    axios.get(`/api/catalog/${shop}`).then(val =>{
         val.data.forEach((obj)=>{
 
             let newDiv = document.createElement('div')
@@ -36,4 +43,13 @@ function update(){
         }
     )
 }
-document.getElementById('updButton').onclick = update;
+
+document.getElementById('5ka').onclick = function(){load("5ka");
+    setActive.call(this)
+};
+document.getElementById('magnet').onclick = function(){load("magnet");
+    setActive.call(this)
+};
+// document.getElementById('perek').onclick = function(){load("perek");
+//     setActive.call(this)
+// };
